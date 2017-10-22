@@ -1,12 +1,26 @@
-language: bash
+sudo: required
+
+# Blacklist
+branches:
+  except:
+    - gh-pages
+
+# Environment variables
+env:
+  global:
+    - GH_REPO_NAME: reactos
+    - DOXYFILE: $TRAVIS_BUILD_DIR/Doxyfile
+    - GH_REPO_REF: github.com/AmineKhaldi/reactos.git
+
+# Install dependencies
+addons:
+  apt:
+    packages:
+      - doxygen
 
 git:
   depth: 5
 
-before_script:
-  - wget https://svn.reactos.org/amine/RosBEBinFull.tar.gz -O RosBE.tar.gz
-  - tar -xzf RosBE.tar.gz
-  - echo 'mkdir ../Build && cd ../Build && $TRAVIS_BUILD_DIR/configure.sh -DENABLE_ROSTESTS=1 && cd reactos && ninja -k 0 && ninja bootcd' > tmp_file
-
 script:
-  - ./RosBEBinFull/RosBE.sh < tmp_file
+  - chmod +x generateDocumentationAndDeploy.sh
+  - ./generateDocumentationAndDeploy.sh
