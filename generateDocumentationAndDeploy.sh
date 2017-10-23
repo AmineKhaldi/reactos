@@ -85,7 +85,7 @@ if [ -d "html" ] && [ -f "html/index.html" ]; then
     # gh-pages branch.
     # GitHub is smart enough to know which files have changed and which files have
     # stayed the same and will only update the changed files.
-    git add --all
+    travis_wait git add --all
 
     # Commit the added files with a title and description containing the Travis CI
     # build number and the GitHub commit reference that issued this build.
