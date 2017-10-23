@@ -20,8 +20,9 @@ git:
   depth: 5
 
 script:
-  - chmod +x generateDocumentationAndDeploy.sh
-  - ./generateDocumentationAndDeploy.sh
+  - chmod +x generate_documentation.sh
+  - ./generate_documentation.sh
+  - cd $TRAVIS_BUILD_DIR/code_docs/reactos
   - travis_wait 40 git add --all
-  - git commit -m "Deploy code docs to GitHub Pages Travis build: ${TRAVIS_BUILD_NUMBER}"
-  - git push --force --quiet "https://${GH_REPO_TOKEN}@${GH_REPO_REF}" > /dev/null 2>&1
+  - chmod +x deploy.sh
+  - ./deploy.sh
