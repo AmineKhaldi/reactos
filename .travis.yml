@@ -24,5 +24,5 @@ script:
   - ./generate_documentation.sh
   - cd $TRAVIS_BUILD_DIR/code_docs/reactos
   - travis_wait 40 git add --all
-  - chmod +x deploy.sh
-  - ./deploy.sh
+  - chmod +x $TRAVIS_BUILD_DIR/deploy.sh
+  - $TRAVIS_BUILD_DIR/deploy.sh
