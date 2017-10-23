@@ -1,5 +1,3 @@
-sudo: required
-
 # Blacklist
 branches:
   except:
