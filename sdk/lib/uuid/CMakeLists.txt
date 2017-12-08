@@ -219,7 +219,9 @@ list(APPEND SOURCE
 #    vcguids.c
     wdmguids.c
     otherguids.c
-    undoc.c)
+    undoc.c
+    precomp.h)
 
 add_library(uuid ${SOURCE})
+add_pch(uuid precomp.h SOURCE NO_UNITY_BUILD)
 add_dependencies(uuid psdk)

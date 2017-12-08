@@ -4,6 +4,7 @@ list(APPEND HAL_APIC_ASM_SOURCE
     apic/tsccal.S)
 
 list(APPEND HAL_APIC_SOURCE
+    include/hal.h
     apic/apic.c
     apic/apictimer.c
     apic/halinit_apic.c
@@ -12,4 +13,5 @@ list(APPEND HAL_APIC_SOURCE
 
 add_asm_files(lib_hal_apic_asm ${HAL_APIC_ASM_SOURCE})
 add_object_library(lib_hal_apic ${HAL_APIC_SOURCE} ${lib_hal_apic_asm})
+add_pch(lib_hal_apic include/hal.h HAL_APIC_SOURCE)
 add_dependencies(lib_hal_apic asm)

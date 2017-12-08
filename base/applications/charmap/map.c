@@ -376,7 +376,7 @@ OnClick(PMAP infoPtr,
 
 static
 BOOL
-OnCreate(PMAP infoPtr,
+MapOnCreate(PMAP infoPtr,
          HWND hwnd,
          HWND hParent)
 {
@@ -558,9 +558,9 @@ MapWndProc(HWND hwnd,
     {
         case WM_CREATE:
         {
-            if (!OnCreate(infoPtr,
-                          hwnd,
-                          ((LPCREATESTRUCTW)lParam)->hwndParent))
+            if (!MapOnCreate(infoPtr,
+                             hwnd,
+                             ((LPCREATESTRUCTW)lParam)->hwndParent))
             {
                 return (LRESULT)-1;
             }

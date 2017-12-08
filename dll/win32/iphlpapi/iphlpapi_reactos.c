@@ -8,8 +8,6 @@
 
 #include "iphlpapi_private.h"
 
-WINE_DEFAULT_DEBUG_CHANNEL(iphlpapi);
-
 DWORD TCPSendIoctl(HANDLE hDevice, DWORD dwIoControlCode, LPVOID lpInBuffer, PULONG pInBufferSize, LPVOID lpOutBuffer, PULONG pOutBufferSize)
 {
     BOOL Hack = FALSE;

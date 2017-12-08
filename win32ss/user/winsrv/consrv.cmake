@@ -53,7 +53,7 @@ endif()
 
 add_library(consrv ${CONSRV_SOURCE})
 add_dependencies(consrv psdk)
-add_pch(consrv consrv/consrv.h CONSRV_SOURCE)
+add_pch(consrv consrv/consrv.h CONSRV_SOURCE UNITY_BUILD)
 #add_object_library(consrv ${CONSRV_SOURCE})
 list(APPEND CONSRV_IMPORT_LIBS psapi)
 list(APPEND CONSRV_DELAY_IMPORT_LIBS ole32)

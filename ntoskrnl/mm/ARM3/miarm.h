@@ -6,6 +6,8 @@
  * PROGRAMMERS:     ReactOS Portable Systems Group
  */
 
+#pragma once
+
 #define MI_LOWEST_VAD_ADDRESS                   (PVOID)MM_LOWEST_USER_ADDRESS
 
 /* Make the code cleaner with some definitions for size multiples */
@@ -2257,5 +2259,28 @@ MiRemoveZeroPageSafe(IN ULONG Color)
     if (MmFreePagesByColor[ZeroedPageList][Color].Flink != LIST_HEAD) return MiRemoveZeroPage(Color);
     return 0;
 }
+
+#if (_MI_PAGING_LEVELS == 2)
+FORCEINLINE
+BOOLEAN
+MiSynchronizeSystemPde(PMMPDE PointerPde)
+{
+    MMPDE SystemPde;
+    ULONG Index;
+
+    /* Get the Index from the PDE */
+    Index = ((ULONG_PTR)PointerPde & (SYSTEM_PD_SIZE - 1)) / sizeof(MMPTE);
+
+    /* Copy the PDE from the double-mapped system page directory */
+    SystemPde = MmSystemPagePtes[Index];
+    *PointerPde = SystemPde;
+
+    /* Make sure we re-read the PDE and PTE */
+    KeMemoryBarrierWithoutFence();
+
+    /* Return, if we had success */
+    return (BOOLEAN)SystemPde.u.Hard.Valid;
+}
+#endif
 
 /* EOF */

@@ -24,8 +24,6 @@
 #include "iphlpapi_private.h"
 #include <strsafe.h>
 
-WINE_DEFAULT_DEBUG_CHANNEL(iphlpapi);
-
 typedef struct _NAME_SERVER_LIST_CONTEXT {
     ULONG uSizeAvailable;
     ULONG uSizeRequired;

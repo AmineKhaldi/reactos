@@ -24,8 +24,6 @@
 #include <config.h>
 #include "iphlpapi_private.h"
 
-WINE_DEFAULT_DEBUG_CHANNEL(iphlpapi);
-
 typedef struct _NAME_SERVER_LIST_PRIVATE {
     UINT NumServers;
     IP_ADDR_STRING * pCurrent;

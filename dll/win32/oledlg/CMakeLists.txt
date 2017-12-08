@@ -17,5 +17,5 @@ add_library(oledlg SHARED
 set_module_type(oledlg win32dll)
 target_link_libraries(oledlg wine)
 add_importlibs(oledlg ole32 comdlg32 user32 advapi32 msvcrt kernel32 ntdll)
-add_pch(oledlg oledlg_private.h SOURCE)
+add_pch(oledlg oledlg_private.h SOURCE NO_UNITY_BUILD)
 add_cd_file(TARGET oledlg DESTINATION reactos/system32 FOR all)

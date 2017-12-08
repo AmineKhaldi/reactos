@@ -1,5 +1,6 @@
 
 list(APPEND HAL_ACPI_SOURCE
+    include/hal.h
     acpi/halacpi.c
     acpi/halpnpdd.c
     acpi/busemul.c
@@ -7,7 +8,7 @@ list(APPEND HAL_ACPI_SOURCE
 
 add_object_library(lib_hal_acpi ${HAL_ACPI_SOURCE})
 add_dependencies(lib_hal_acpi bugcodes xdk)
-#add_pch(lib_hal_acpi include/hal.h)
+add_pch(lib_hal_acpi include/hal.h HAL_ACPI_SOURCE)
 
 if(MSVC)
     target_link_libraries(lib_hal_acpi lib_hal_generic)

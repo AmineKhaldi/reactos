@@ -73,7 +73,7 @@ list(APPEND SOURCE
 file(GLOB ntvdm_rc_deps res/*.*)
 add_rc_deps(ntvdm.rc ${ntvdm_rc_deps})
 add_executable(ntvdm ${SOURCE} ntvdm.rc)
-add_pch(ntvdm ntvdm.h SOURCE)
+add_pch(ntvdm ntvdm.h SOURCE NO_UNITY_BUILD)
 set_module_type(ntvdm win32cui UNICODE IMAGEBASE 0x0F000000)
 target_link_libraries(ntvdm fast486 ${PSEH_LIB})
 add_importlibs(ntvdm user32 gdi32 advapi32 comdlg32 msvcrt kernel32 ntdll)

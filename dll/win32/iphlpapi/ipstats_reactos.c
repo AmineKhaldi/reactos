@@ -21,8 +21,6 @@
 
 #include "iphlpapi_private.h"
 
-WINE_DEFAULT_DEBUG_CHANNEL(iphlpapi);
-
 #ifndef TCPS_ESTABLISHED
 # define TCPS_ESTABLISHED TCP_ESTABLISHED
 #endif

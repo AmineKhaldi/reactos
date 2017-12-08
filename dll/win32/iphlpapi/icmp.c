@@ -60,10 +60,7 @@
 #include "ip.h"
 #include "ip_icmp.h"
 
-
-WINE_DEFAULT_DEBUG_CHANNEL(icmp);
 WINE_DECLARE_DEBUG_CHANNEL(winediag);
-
 
 typedef struct {
     int sid;

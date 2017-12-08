@@ -8,7 +8,6 @@
 
 #include "iphlpapi_private.h"
 
-WINE_DEFAULT_DEBUG_CHANNEL(iphlpapi);
 #ifdef GetAdaptersAddressesV2
 /* Helper for GetAdaptersAddresses:
  * Retrieves the list of network adapters from tcpip.sys */

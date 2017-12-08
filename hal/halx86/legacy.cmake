@@ -1,5 +1,6 @@
 
 list(APPEND HAL_LEGACY_SOURCE
+    include/hal.h
     legacy/bus/bushndlr.c
     legacy/bus/cmosbus.c
     legacy/bus/isabus.c
@@ -13,7 +14,7 @@ list(APPEND HAL_LEGACY_SOURCE
 
 add_object_library(lib_hal_legacy ${HAL_LEGACY_SOURCE})
 add_dependencies(lib_hal_legacy bugcodes xdk)
-#add_pch(lib_hal_legacy include/hal.h)
+add_pch(lib_hal_legacy include/hal.h HAL_LEGACY_SOURCE)
 
 if(MSVC)
     target_link_libraries(lib_hal_legacy lib_hal_generic)

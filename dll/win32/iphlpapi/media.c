@@ -17,9 +17,8 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
  */
-#include "iphlpapi_private.h"
 
-WINE_DEFAULT_DEBUG_CHANNEL(iphlpapi);
+#include "iphlpapi_private.h"
 
 /*
  * @unimplemented
@@ -38,4 +37,3 @@ DWORD WINAPI RestoreMediaSense(OVERLAPPED* pOverlapped,LPDWORD lpdwEnableCount)
     UNIMPLEMENTED;
     return 0L;
 }
-

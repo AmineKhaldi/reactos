@@ -34,7 +34,9 @@
 #include <ndk/rtlfuncs.h>
 #include <iphlpapi.h>
 #include "resinfo.h"
+
 #include <wine/debug.h>
+WINE_DEFAULT_DEBUG_CHANNEL(iphlpapi);
 
 #include "dhcp.h"
 #include <dhcpcsdk.h>

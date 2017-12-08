@@ -27,8 +27,6 @@
 #define IP_FORWARD_ADD 3
 #define IP_FORWARD_DEL 2
 
-WINE_DEFAULT_DEBUG_CHANNEL(iphlpapi);
-
 DWORD createIpForwardEntry( PMIB_IPFORWARDROW pRoute ) {
     HANDLE tcpFile;
     NTSTATUS status = openTcpFile( &tcpFile, FILE_READ_DATA | FILE_WRITE_DATA );
