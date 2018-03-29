@@ -1,7 +1,8 @@
 environment:
   matrix:
-    - BuildType: "clang-cl"
+    - BuildType: "msvc-x64"
     - BuildType: "msvc"
+    - BuildType: "clang-cl"
 
 version: reactos.appveyor.{build}
 skip_branch_with_pr: true
@@ -22,13 +23,17 @@ init:
 
 build_script:
   - set PATH=C:\RosCMakeNinja\bin;%PATH%
-  - call "C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\vcvarsall.bat" x86
+  - if "%BuildType%" == "msvc-x64" (
+        call "C:\PROGRA~2\Microsoft Visual Studio 14.0\VC\vcvarsall.bat" amd64
+      ) else (
+        call "C:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\vcvarsall.bat" x86
+      )
   - cmake --version
   - md c:\ros_build
   - cd c:\ros_build
   - call %APPVEYOR_BUILD_FOLDER%\configure.cmd %clang_configure_option% -DENABLE_ROSTESTS=1
-  - ninja -k0
-  - ninja bootcd
+  - ninja -k0 | grep -P -v '\[\d+\/\d+\] '
+  - ninja bootcd | grep -P -v '\[\d+\/\d+\] '
 
 test: off
 deploy: off
