@@ -9,4 +9,4 @@ add_subdirectory(d3d8thk)
 add_subdirectory(ksuser)
 #add_subdirectory(msdvbnp) #disabled in trunk
 #add_subdirectory(msvidctl) #disabled in trunk
-add_subdirectory(wine)
+#add_subdirectory(wine)
